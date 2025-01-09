@@ -1,0 +1,279 @@
+Started by user admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/sonar-ci@2
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout the project)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/sonar-ci@2/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/NandishDevops-27/sonar-springboot-app.git # timeout=10
+Fetching upstream changes from https://github.com/NandishDevops-27/sonar-springboot-app.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/NandishDevops-27/sonar-springboot-app.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision f6d302c2ef5bdaefcb22c423b70bb82598896f2a (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f6d302c2ef5bdaefcb22c423b70bb82598896f2a # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master f6d302c2ef5bdaefcb22c423b70bb82598896f2a # timeout=10
+Commit message: "sonar onbaordeing"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build the package)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ mvn install
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36mcom.cloudtechmasters:springboot-maven-course-micro-svc[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding springboot-maven-course-micro-svc 0.0.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.2.0:resources[m [1m(default-resources)[m @ [36mspringboot-maven-course-micro-svc[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered properties files.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] Copying 0 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mspringboot-maven-course-micro-svc[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.2.0:testResources[m [1m(default-testResources)[m @ [36mspringboot-maven-course-micro-svc[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered properties files.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/sonar-ci@2/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mspringboot-maven-course-micro-svc[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.22.2:test[m [1m(default-test)[m @ [36mspringboot-maven-course-micro-svc[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running com.cloudtechmasters.[1mSpringbootMavenCourseMicroSvcApplicationTests[m
+10:55:28.528 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+10:55:28.547 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+10:55:28.617 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.cloudtechmasters.SpringbootMavenCourseMicroSvcApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+10:55:28.629 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cloudtechmasters.SpringbootMavenCourseMicroSvcApplicationTests], using SpringBootContextLoader
+10:55:28.633 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.cloudtechmasters.SpringbootMavenCourseMicroSvcApplicationTests]: class path resource [com/cloudtechmasters/SpringbootMavenCourseMicroSvcApplicationTests-context.xml] does not exist
+10:55:28.635 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.cloudtechmasters.SpringbootMavenCourseMicroSvcApplicationTests]: class path resource [com/cloudtechmasters/SpringbootMavenCourseMicroSvcApplicationTestsContext.groovy] does not exist
+10:55:28.635 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.cloudtechmasters.SpringbootMavenCourseMicroSvcApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+10:55:28.636 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.cloudtechmasters.SpringbootMavenCourseMicroSvcApplicationTests]: SpringbootMavenCourseMicroSvcApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:55:28.706 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.cloudtechmasters.SpringbootMavenCourseMicroSvcApplicationTests]
+10:55:28.790 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/var/lib/jenkins/workspace/sonar-ci@2/target/classes/com/cloudtechmasters/SpringbootMavenCourseMicroSvcApplication.class]
+10:55:28.792 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.cloudtechmasters.SpringbootMavenCourseMicroSvcApplication for test class com.cloudtechmasters.SpringbootMavenCourseMicroSvcApplicationTests
+10:55:28.897 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.cloudtechmasters.SpringbootMavenCourseMicroSvcApplicationTests]: using defaults.
+10:55:28.899 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+10:55:28.914 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+10:55:28.916 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+10:55:28.917 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5f77d0f9, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@463fd068, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@895e367, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1b266842, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7a3793c7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@42b3b079, org.springframework.test.context.event.EventPublishingTestExecutionListener@651aed93, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4dd6fd0a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@bb9e6dc, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5456afaa, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6692b6c6, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1cd629b3, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@589da3f3]
+10:55:28.922 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@1c39680d testClass = SpringbootMavenCourseMicroSvcApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@62833051 testClass = SpringbootMavenCourseMicroSvcApplicationTests, locations = '{}', classes = '{class com.cloudtechmasters.SpringbootMavenCourseMicroSvcApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@3bd82cf5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@d35dea7, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@2de23121, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@13b6aecc, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@49e5f737, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@553f17c], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+10:55:28.965 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.5.4)
+
+2025-01-09 10:55:29.380  INFO 25910 --- [           main] gbootMavenCourseMicroSvcApplicationTests : Starting SpringbootMavenCourseMicroSvcApplicationTests using Java 17.0.13 on Jenkins with PID 25910 (started by jenkins in /var/lib/jenkins/workspace/sonar-ci@2)
+2025-01-09 10:55:29.391  INFO 25910 --- [           main] gbootMavenCourseMicroSvcApplicationTests : No active profile set, falling back to default profiles: default
+2025-01-09 10:55:31.767  INFO 25910 --- [           main] gbootMavenCourseMicroSvcApplicationTests : Started SpringbootMavenCourseMicroSvcApplicationTests in 2.795 seconds (JVM running for 4.1)
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.892 s - in com.cloudtechmasters.[1mSpringbootMavenCourseMicroSvcApplicationTests[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 1, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.2.0:jar[m [1m(default-jar)[m @ [36mspringboot-maven-course-micro-svc[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mspring-boot-maven-plugin:2.5.4:repackage[m [1m(repackage)[m @ [36mspringboot-maven-course-micro-svc[0;1m ---[m
+[[1;34mINFO[m] Replacing main artifact with repackaged archive
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-install-plugin:2.5.2:install[m [1m(default-install)[m @ [36mspringboot-maven-course-micro-svc[0;1m ---[m
+[[1;34mINFO[m] Installing /var/lib/jenkins/workspace/sonar-ci@2/target/springboot-maven-course-micro-svc-0.0.1-SNAPSHOT.jar to /var/lib/jenkins/.m2/repository/com/cloudtechmasters/springboot-maven-course-micro-svc/0.0.1-SNAPSHOT/springboot-maven-course-micro-svc-0.0.1-SNAPSHOT.jar
+[[1;34mINFO[m] Installing /var/lib/jenkins/workspace/sonar-ci@2/pom.xml to /var/lib/jenkins/.m2/repository/com/cloudtechmasters/springboot-maven-course-micro-svc/0.0.1-SNAPSHOT/springboot-maven-course-micro-svc-0.0.1-SNAPSHOT.pom
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  8.040 s
+[[1;34mINFO[m] Finished at: 2025-01-09T10:55:33Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Sonar Quality Check)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] withSonarQubeEnv
+Injecting SonarQube environment variables using the configuration: sonar-latest
+[Pipeline] {
+[Pipeline] sh
++ mvn sonar:sonar
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] The artifact org.codehaus.mojo:sonar-maven-plugin:jar:4.0.0.4121 has been relocated to org.sonarsource.scanner.maven:sonar-maven-plugin:jar:4.0.0.4121: SonarQube plugin was moved to SonarSource organisation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36mcom.cloudtechmasters:springboot-maven-course-micro-svc[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding springboot-maven-course-micro-svc 0.0.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msonar-maven-plugin:4.0.0.4121:sonar[m [1m(default-cli)[m @ [36mspringboot-maven-course-micro-svc[0;1m ---[m
+[[1;33mWARNING[m] 10:55:37.448 Using an unspecified version instead of an explicit plugin version may introduce breaking analysis changes at an unwanted time. It is highly recommended to use an explicit version, e.g. 'org.sonarsource.scanner.maven:sonar-maven-plugin:4.0.0.4121'.
+[[1;34mINFO[m] 10:55:37.474 Java 17.0.13 Ubuntu (64-bit)
+[[1;34mINFO[m] 10:55:37.475 Linux 6.8.0-1018-aws (amd64)
+[[1;34mINFO[m] 10:55:37.784 User cache: /var/lib/jenkins/.sonar/cache
+[[1;34mINFO[m] 10:55:37.881 Communicating with SonarQube Server 25.1.0.102122
+[[1;34mINFO[m] 10:55:37.906 Default locale: "en", source code encoding: "UTF-8"
+[[1;33mWARNING[m] 10:55:38.565 Property 'env.SONARQUBE_SCANNER_PARAMS' is encrypted. The encryption of scanner properties is deprecated and will soon be removed.
+[[1;34mINFO[m] 10:55:39.474 Load global settings
+[[1;34mINFO[m] 10:55:39.578 Load global settings (done) | time=104ms
+[[1;34mINFO[m] 10:55:39.596 Server id: 147B411E-AZRKehCI1YYG02yHSMGG
+[[1;34mINFO[m] 10:55:39.607 Loading required plugins
+[[1;34mINFO[m] 10:55:39.607 Load plugins index
+[[1;34mINFO[m] 10:55:39.622 Load plugins index (done) | time=15ms
+[[1;34mINFO[m] 10:55:39.622 Load/download plugins
+[[1;34mINFO[m] 10:55:39.642 Load/download plugins (done) | time=20ms
+[[1;34mINFO[m] 10:55:40.139 Process project properties
+[[1;34mINFO[m] 10:55:40.152 Process project properties (done) | time=13ms
+[[1;34mINFO[m] 10:55:40.167 Project key: com.cloudtechmasters:springboot-maven-course-micro-svc
+[[1;34mINFO[m] 10:55:40.168 Base dir: /var/lib/jenkins/workspace/sonar-ci@2
+[[1;34mINFO[m] 10:55:40.168 Working dir: /var/lib/jenkins/workspace/sonar-ci@2/target/sonar
+[[1;34mINFO[m] 10:55:40.178 Load project settings for component key: 'com.cloudtechmasters:springboot-maven-course-micro-svc'
+[[1;34mINFO[m] 10:55:40.201 Load project settings for component key: 'com.cloudtechmasters:springboot-maven-course-micro-svc' (done) | time=23ms
+[[1;34mINFO[m] 10:55:40.245 Load quality profiles
+[[1;34mINFO[m] 10:55:40.309 Load quality profiles (done) | time=64ms
+[[1;34mINFO[m] 10:55:40.326 Auto-configuring with CI 'Jenkins'
+[[1;34mINFO[m] 10:55:40.364 Load active rules
+[[1;34mINFO[m] 10:55:41.073 Load active rules (done) | time=709ms
+[[1;34mINFO[m] 10:55:41.081 Load analysis cache
+[[1;34mINFO[m] 10:55:41.104 Load analysis cache (312 bytes) | time=23ms
+[[1;34mINFO[m] 10:55:41.196 Preprocessing files...
+[[1;34mINFO[m] 10:55:41.319 2 languages detected in 4 preprocessed files
+[[1;34mINFO[m] 10:55:41.320 0 files ignored because of scm ignore settings
+[[1;34mINFO[m] 10:55:41.324 Loading plugins for detected languages
+[[1;34mINFO[m] 10:55:41.324 Load/download plugins
+[[1;34mINFO[m] 10:55:41.338 Load/download plugins (done) | time=14ms
+[[1;34mINFO[m] 10:55:41.577 Load project repositories
+[[1;34mINFO[m] 10:55:41.741 Load project repositories (done) | time=164ms
+[[1;34mINFO[m] 10:55:41.770 Indexing files...
+[[1;34mINFO[m] 10:55:41.772 Project configuration:
+[[1;34mINFO[m] 10:55:41.786 4 files indexed
+[[1;34mINFO[m] 10:55:41.788 Quality profile for java: Sonar way
+[[1;34mINFO[m] 10:55:41.788 Quality profile for xml: Sonar way
+[[1;34mINFO[m] 10:55:41.789 ------------- Run sensors on module springboot-maven-course-micro-svc
+[[1;34mINFO[m] 10:55:41.917 Load metrics repository
+[[1;34mINFO[m] 10:55:41.947 Load metrics repository (done) | time=30ms
+[[1;34mINFO[m] 10:55:43.165 Sensor JavaSensor [java]
+[[1;34mINFO[m] 10:55:43.173 Configured Java source version (sonar.java.source): 8, preview features enabled (sonar.java.enablePreview): false
+[[1;34mINFO[m] 10:55:43.205 Server-side caching is enabled. The Java analyzer will not try to leverage data from a previous analysis.
+[[1;34mINFO[m] 10:55:43.208 Using ECJ batch to parse 2 Main java source files with batch size 102 KB.
+[[1;34mINFO[m] 10:55:43.412 Starting batch processing.
+[[1;34mINFO[m] 10:55:44.315 The Java analyzer cannot skip unchanged files in this context. A full analysis is performed for all files.
+[[1;34mINFO[m] 10:55:44.997 100% analyzed
+[[1;34mINFO[m] 10:55:44.997 Batch processing: Done.
+[[1;34mINFO[m] 10:55:44.999 Did not optimize analysis for any files, performed a full analysis for all 2 files.
+[[1;34mINFO[m] 10:55:45.001 Using ECJ batch to parse 1 Test java source files with batch size 102 KB.
+[[1;34mINFO[m] 10:55:45.006 Starting batch processing.
+[[1;34mINFO[m] 10:55:45.130 100% analyzed
+[[1;34mINFO[m] 10:55:45.130 Batch processing: Done.
+[[1;34mINFO[m] 10:55:45.131 Did not optimize analysis for any files, performed a full analysis for all 1 files.
+[[1;34mINFO[m] 10:55:45.132 No "Generated" source files to scan.
+[[1;34mINFO[m] 10:55:45.132 Sensor JavaSensor [java] (done) | time=1969ms
+[[1;34mINFO[m] 10:55:45.132 Sensor SurefireSensor [java]
+[[1;34mINFO[m] 10:55:45.134 parsing [/var/lib/jenkins/workspace/sonar-ci@2/target/surefire-reports]
+[[1;34mINFO[m] 10:55:45.197 Sensor SurefireSensor [java] (done) | time=65ms
+[[1;34mINFO[m] 10:55:45.198 Sensor XML Sensor [xml]
+[[1;34mINFO[m] 10:55:45.205 1 source file to be analyzed
+[[1;34mINFO[m] 10:55:45.399 1/1 source file has been analyzed
+[[1;34mINFO[m] 10:55:45.400 Sensor XML Sensor [xml] (done) | time=202ms
+[[1;34mINFO[m] 10:55:45.401 Sensor JaCoCo XML Report Importer [jacoco]
+[[1;34mINFO[m] 10:55:45.403 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+[[1;34mINFO[m] 10:55:45.406 No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+[[1;34mINFO[m] 10:55:45.406 Sensor JaCoCo XML Report Importer [jacoco] (done) | time=5ms
+[[1;34mINFO[m] 10:55:45.406 Sensor Java Config Sensor [iac]
+[[1;34mINFO[m] 10:55:45.429 0 source files to be analyzed
+[[1;34mINFO[m] 10:55:45.429 0/0 source files have been analyzed
+[[1;34mINFO[m] 10:55:45.431 Sensor Java Config Sensor [iac] (done) | time=25ms
+[[1;34mINFO[m] 10:55:45.431 Sensor IaC Docker Sensor [iac]
+[[1;34mINFO[m] 10:55:45.581 0 source files to be analyzed
+[[1;34mINFO[m] 10:55:45.582 0/0 source files have been analyzed
+[[1;34mINFO[m] 10:55:45.582 Sensor IaC Docker Sensor [iac] (done) | time=151ms
+[[1;34mINFO[m] 10:55:45.582 Sensor TextAndSecretsSensor [text]
+[[1;34mINFO[m] 10:55:45.582 Available processors: 2
+[[1;34mINFO[m] 10:55:45.583 Using 2 threads for analysis.
+[[1;34mINFO[m] 10:55:46.203 Using git CLI to retrieve untracked files
+[[1;34mINFO[m] 10:55:46.213 Analyzing language associated files and files included via "sonar.text.inclusions" that are tracked by git
+[[1;34mINFO[m] 10:55:46.230 4 source files to be analyzed
+[[1;34mINFO[m] 10:55:46.260 4/4 source files have been analyzed
+[[1;34mINFO[m] 10:55:46.261 Sensor TextAndSecretsSensor [text] (done) | time=679ms
+[[1;34mINFO[m] 10:55:46.265 ------------- Run sensors on project
+[[1;34mINFO[m] 10:55:46.455 Sensor Zero Coverage Sensor
+[[1;34mINFO[m] 10:55:46.462 Sensor Zero Coverage Sensor (done) | time=7ms
+[[1;34mINFO[m] 10:55:46.463 Sensor Java CPD Block Indexer
+[[1;34mINFO[m] 10:55:46.478 Sensor Java CPD Block Indexer (done) | time=15ms
+[[1;34mINFO[m] 10:55:46.489 CPD Executor 2 files had no CPD blocks
+[[1;34mINFO[m] 10:55:46.490 CPD Executor Calculating CPD for 0 files
+[[1;34mINFO[m] 10:55:46.491 CPD Executor CPD calculation finished (done) | time=0ms
+[[1;34mINFO[m] 10:55:46.503 SCM revision ID 'f6d302c2ef5bdaefcb22c423b70bb82598896f2a'
+[[1;34mINFO[m] 10:55:46.686 Analysis report generated in 176ms, dir size=241.4 kB
+[[1;34mINFO[m] 10:55:46.718 Analysis report compressed in 32ms, zip size=31.5 kB
+[[1;34mINFO[m] 10:55:46.740 Analysis report uploaded in 21ms
+[[1;34mINFO[m] 10:55:46.742 ANALYSIS SUCCESSFUL, you can find the results at: http://54.177.150.152:9000/dashboard?id=com.cloudtechmasters%3Aspringboot-maven-course-micro-svc
+[[1;34mINFO[m] 10:55:46.742 Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[[1;34mINFO[m] 10:55:46.742 More about the report processing at http://54.177.150.152:9000/api/ce/task?id=0ec3fea1-44d4-4959-a7e7-5761f9cdad20
+[[1;34mINFO[m] 10:55:46.752 Analysis total time: 7.038 s
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  10.905 s
+[[1;34mINFO[m] Finished at: 2025-01-09T10:55:46Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[Pipeline] }
+[Pipeline] // withSonarQubeEnv
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
